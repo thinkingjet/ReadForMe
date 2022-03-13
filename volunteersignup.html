@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ReadForMe - Volunteer Application</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+	<script src='https://www.google.com/recaptcha/api.js'>
+	</script>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Lato:wght@900&family=Nunito:wght@300&family=Quicksand:wght@500&display=swap"
+	 rel="stylesheet">
+</head>
+<body>
+	<div class="row" style="margin:0px;">
+		<div class="col no-gutters" style="position:relative;">
+			<center style="position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);width:100%; height: 100%; overflow: auto;">
+      <br>
+      <br>
+      <input type="text" style="text-align:center;" placeholder="Email" id="email">
+      <br>
+      <br>
+      <input type="text" style="text-align:center;" placeholder="Age" id="age">
+      <br>
+      <br>
+      <input type="password" style="text-align:center;" placeholder="Password" id="password">
+      <br>
+      <br>
+      <input type="text" style="text-align:center;" placeholder="Full Name" id="name" maxlength="25">
+      <br>
+      <br>
+      <textarea id="description" placeholder="Your description (Everyone sees this)" style="width:90%;height:150px;resize:none;"></textarea>
+      <h2>Schedule</h2>
+      <p>Fill out empty blocks with your available time</p>
+      <table>
+        <tr>
+          <th>Monday</th><td><input type="text" style="margin:-5px;padding:0px;border-radius:0px;border: none;" id="monday" placeholder="10:00AM - 11:00AM"></td>
+        </tr>
+        <tr>
+          <th>Tuesday</th>
+          <td><input type="text" style="margin:-5px;padding:0px;border-radius:0px;border: none;" id="tuesday" placeholder="10:00AM - 11:00AM">
+          </td>
+        </tr>
+        <tr>
+          <th>Wednesday</th><td><input type="text" style="margin:-5px;padding:0px;border-radius:0px;border: none;" id="wednesday" placeholder="10:00AM - 11:00AM"></td>
+        </tr>
+        <tr>
+          <th>Thursday</th><td><input type="text" style="margin:-5px;padding:0px;border-radius:0px;border: none;" id="thursday" placeholder="10:00AM - 11:00AM"></td>
+        </tr>
+        <tr>
+          <th>Friday</th><td><input type="text" style="margin:-5px;padding:0px;border-radius:0px;border: none;" id="friday" placeholder="10:00AM - 11:00AM"></td>
+        </tr>
+        <tr>
+          <th>Saturday</th><td><input type="text" style="margin:-5px;padding:0px;border-radius:0px;border: none;" id="saturday" placeholder="10:00AM - 11:00AM"></td>
+        </tr>
+        <tr>
+          <th>Sunday</th><td><input type="text" style="margin:-5px;padding:0px;border-radius:0px;border: none;" id="sunday" placeholder="10:00AM - 11:00AM"></td>
+        </tr>
+      </table>
+      <br>
+      <button onclick="mail()">Submit</button>
+      <br><br>
+    </center>
+    </div>
+    <div class="col no-gutters" style="text-align:center;background: url(bookflowers.png) no-repeat center center;background-size: cover;height:100vh;position:relative;">
+			<div style="position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);">
+			</div>
+		</div>
+  </div>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js">
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js">
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js">
+		</script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js">
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+		</script>
+		<script>
+			var firebaseConfig = {
+    		apiKey: "AIzaSyACcdoqDQY_wJppp11MyYXSq9sEQ-prynI",
+        authDomain: "my-awesome-project-821d9.firebaseio.com/",
+        databaseURL: "https://my-awesome-project-821d9.firebaseio.com/",
+        projectId: "my-awesome-project-821d9",
+        storageBucket: "my-awesome-project-821d9.appspot.com",
+        messagingSenderId: "1023568265163",
+        appId: "1:1023568265163:web:9e6ead95acc1312c9f804e"
+  		};
+  		firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      function mail(){
+        if(document.getElementById("email").value && document.getElementById("name").value && document.getElementById("description").value && document.getElementById("password").value && document.getElementById("monday").value && document.getElementById("tuesday").value && document.getElementById("wednesday").value && document.getElementById("thursday").value && document.getElementById("friday").value && document.getElementById("saturday").value && document.getElementById("sunday").value && document.getElementById("age").value){
+          Email.send({
+            SecureToken : "129bdd55-9ab5-4d42-a225-eb412ce9bd0c",
+            Host : "smtp.mailtrap.io",
+            Username : "c1d3e6aa88a22f",
+            Password : "623b5974c13bc9",
+            To : "ReadForMeteam@gmail.com",
+            From : document.getElementById("email").value,
+            CC : "ReadForMeteam@gmail.com",
+            Subject : "Volunteer Request",
+            Body : `
+            <html>
+              <center>
+                <h1 style="font-family:sans-serif;">Volunteer Request</h1>
+                <h2 style="font-family:sans-serif;">`+document.getElementById("name").value+`</h2>
+                <pre style="font-family:sans-serif;">`+document.getElementById("description").value+`</pre>
+                <br>
+                <button onclick="volunteersignup('`+document.getElementById("name").value+`','`+document.getElementById("email").value+`','`+document.getElementById("password").value+`','`+document.getElementById("email").value+`','`+document.getElementById("monday").value+`','`+document.getElementById("tuesday").value+`','`+document.getElementById("wednesday").value+`','`+document.getElementById("thursday").value+`','`+document.getElementById("friday").value+`','`+document.getElementById("saturday").value+`','`+document.getElementById("sunday").value+`','`+document.getElementById("description").value+`','`+document.getElementById("age").value+`')">Allow Volunteer</button>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+		</sc`+`ript>
+                <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js">
+		</scr`+`ipt>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js">
+		</scr`+`ipt>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js">
+		</scr`+`ipt>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+		</scr`+`ipt>
+		<script>
+			var firebaseConfig = {
+    		apiKey: "AIzaSyACcdoqDQY_wJppp11MyYXSq9sEQ-prynI",
+        authDomain: "my-awesome-project-821d9.firebaseio.com/",
+        databaseURL: "https://my-awesome-project-821d9.firebaseio.com/",
+        projectId: "my-awesome-project-821d9",
+        storageBucket: "my-awesome-project-821d9.appspot.com",
+        messagingSenderId: "1023568265163",
+        appId: "1:1023568265163:web:9e6ead95acc1312c9f804e"
+  		};
+  		firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+                </scri`+`pt>
+                <script src="script.js"></sc`+`ript>
+              </center>
+            </html>`
+          })
+        }else{
+          alert("You didn't fill all of the inputs!")
+        }
+      }
+		</script>
+    <script src="script.js"></script>
+  </body>
+</html>

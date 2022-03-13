@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ReadForMe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Lato:wght@900&family=Nunito:wght@300&family=Quicksand:wght@500&family=Lora&display=swap" rel="stylesheet">
+  </head>
+  <body style="background-color: rgb(82, 59, 24);margin:0px;">
+    <div style="padding:2.5vh;background-color: rgb(82, 59, 24);width:100%;margin:0px;">
+      <p style="font-family:Lora;font-size:2.5vh;margin:0px;padding:0px;float:right;cursor:pointer;" onclick="goSomewhere('signup.html')">Signup | Login</p>
+      <h2 style="font-family:Lora;font-size:5vh;margin:0px;padding:0px;margin-top:0px;">ReadForMe</h2>
+    </div>
+    <div style="background-color:white;height:90vh;width:100%;text-align:center;">
+      <div style="display: flex;flex-wrap: wrap;justify-content:center;justify-content: space-around;">
+        <div style="width:30%;height:80vh;background: url(book.jpeg) no-repeat center center fixed;background-size: cover;margin-top:5vh;"></div>
+        <div style="width:30%;height:80vh;background: url(book.jpeg) no-repeat center center fixed;background-size: cover;margin-top:5vh;"></div>
+        <div style="width:30%;height:80vh;background: url(book.jpeg) no-repeat center center fixed;background-size: cover;margin-top:5vh;"></div>
+      </div>
+    </div>
+    <div class="row" style="margin:0px;padding:0px;height:100vh;overflow:visible;">
+      <div class="col no-gutters;" style="margin:0px;padding:0px;overflow:visible;">
+        <div style="background: url(window.jpeg) no-repeat center center;background-size: cover;height:100vh;clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);padding:0px;margin:0px;">
+        </div>
+      </div>
+      <div class="col-4 no-gutters;margin:0px;padding:0px;">
+        <center style="position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);width:90%;">
+          <h2>Our Goal</h2>
+          <br>
+          <p style="text-align:left;font-size:20px;">The pleasure and well-being of a sick kid in a hospital is at the heart of ReadForMe's goal. We're looking for any young children who are ready to volunteer their time to read to these hospitalised children and flip their frowns upside down!</p>
+        </center>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js">
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js">
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js">
+		</script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js">
+		</script>
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+		</script>
+		<script>
+			var firebaseConfig = {
+    		apiKey: "AIzaSyACcdoqDQY_wJppp11MyYXSq9sEQ-prynI",
+        authDomain: "my-awesome-project-821d9.firebaseio.com/",
+        databaseURL: "https://my-awesome-project-821d9.firebaseio.com/",
+        projectId: "my-awesome-project-821d9",
+        storageBucket: "my-awesome-project-821d9.appspot.com",
+        messagingSenderId: "1023568265163",
+        appId: "1:1023568265163:web:9e6ead95acc1312c9f804e"
+  		};
+  		firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      if(localStorage.getItem("userToken")){
+        location = "ReadForMebrowse.html"
+      }
+		</script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+Inspiration
+Kenji has a rare auto-immune disease called "Coupe de Sabre" which has around 0.4 to 2.7 cases per 10,000 people per year. He had to visit the hospital, get several shots in one day, multiple times a month. On one occasion, Kierra decided to read a book to him so that she could help take his mind off of the shots and medications. Eventually, Kenji grew a love of learning and became advanced in that subject. In 3rd grade, he was already reading at a 9th grade level. For this hackathon, Kierra, Kenji, and Keizou wanted to recreate that learning experience, promote mental health and make it available for all kids in hospitals. Instead of spending time in the hospital playing video games or watching movies, kids could be exposed to reading to further develop their skills at a young age. This provides equality for education for all kids in hospitals despite those setbacks.
+
+Description
+Our team made a project called ReadForMe, where kid volunteers read to sick kids in the hospital to promote mental health during these social distancing times. Why kid volunteer? Kids can connect with other kids in an instant. We made this because we want to give the kids in the hospital a chance to find the love of reading. A chance to form a love that will last for a life time. A chance to get through one more shot, one more chemo, just one more. We are the ReadForMe team and we are here to change a sick kid's life. One at a time.
+
+What it does
+There are 2 types of users: patients and volunteers. Patients are able to find volunteers that they can talk to and call with. Each volunteer page includes the volunteer's schedule and times they can meet, as well as a chat to familiarize the patient with them. There is an option to 'remember the volunteer' if a patient enjoys reading with them, and an option to 'report the volunteer' if the patient feels uncomfortable at any point. In general, ReadForMe was made to connect patients with volunteers, who can read to young patients to distract them from their pain and to simultaneously help them grow academically.
+
+What’s next for ReadForMe
+In the future, we would like to improve by:
+
+Reaching out to famous authors to spread knowledge of ReadForMe. This may be a big goal, but it will really bring ReadForMe to the next level in terms of popularity and the amount of users. By reaching out to big names and popular writers, ReadForMe can have a farther outreach and help affect the lives of more young kids.
+Creating filters for the patients to better find volunteers. These filters will allow patients to choose the age of the reader, their gender, and the difficulty of the book. Overall, this filtering process will allow a more individualized platform for each user.

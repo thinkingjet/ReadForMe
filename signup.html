@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ReadForMe - Signup & Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Lato:wght@900&family=Nunito:wght@300&family=Quicksand:wght@500&family=Lora&display=swap" rel="stylesheet">
+  </head>
+  <body style="margin:0px;padding:0px;">
+    <div style="padding:2.5vh;background-color: rgb(82, 59, 24);width:100%;margin:0px;">
+      <h2 style="font-family:Lora;font-size:5vh;margin:0px;padding:0px;margin-top:0px;">ReadForMe</h2>
+    </div>
+    <div class="row" style="margin:0px;padding:0px;height:80vh;">
+      <div class="col no-gutters" style="position:relative;height:80vh;margin:0px;padding:0px;">
+        <div style="background-color: rgb(221, 211, 197);position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);height:60vh;width:60%;margin:0px;padding:20px;text-align:center;">
+          <div style="position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);margin:0px;padding;text-align:center;">
+            <h2>Signup</h2>
+            <input type="text" style="text-align:center;" placeholder="Email" id="email" maxlength="20">
+            <br>
+            <br>
+            <input type="text" style="text-align:center;" placeholder="Full Name" id="name" maxlength="25">
+            <br>
+            <br>
+            <input type="password" style="text-align:center;" placeholder="Password" id="password">
+            <br>
+            <br>
+            <button onclick="signup()" style="width:90%;">Signup</button>
+            <p onclick="goSomewhere('volunteersignup.html')" style="cursor:pointer;">Or Signup As a Volunteer!</p>
+            <div id="warning."></div>
+          </div>
+        </div>
+      </div>
+      <div class="col no-gutters" style="height:80vh;margin:0px;padding:0px;position:relative;">
+        <div style="background-color: rgb(221, 211, 197);position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);height:60vh;width:60%;margin:0px;padding:20px;text-align:center;">
+          <div style="position: absolute;top: 50%; left: 50%;transform: translate(-50%, -50%);margin:0px;padding;text-align:center;">
+            <h2>Login</h2>
+            <input type="text" style="text-align:center;" placeholder="Username" id="usernamer" style="text-align:center;border-radius:5px;width:75%;">
+            <br>
+            <br>
+            <input type="password" style="text-align:center;" placeholder="Password" id="passwordr" style="text-align:center;border-radius:5px;">
+            <br>
+            <br>
+            <button style="width:90%;" onclick="login()">Login</button>
+            <div id="warning"></div>
+          </div>
+      </div>
+    </div>
+    </div>
+    <div style="background-color: rgb(189, 173, 150);height:9vh;width:100%;margin:0px;padding:3.5vh;">
+      <p style="float:right;font-size:3vh;padding:-3px;margin:-3px;">123@readforme.tech</p>
+      <h2 style="font-size:3vh;padding:0px;margin:0px;">Contact Us</h2>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js">
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js">
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js">
+		</script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js">
+		</script>
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+		</script>
+		<script>
+			var firebaseConfig = {
+    		apiKey: "AIzaSyACcdoqDQY_wJppp11MyYXSq9sEQ-prynI",
+        authDomain: "my-awesome-project-821d9.firebaseio.com/",
+        databaseURL: "https://my-awesome-project-821d9.firebaseio.com/",
+        projectId: "my-awesome-project-821d9",
+        storageBucket: "my-awesome-project-821d9.appspot.com",
+        messagingSenderId: "1023568265163",
+        appId: "1:1023568265163:web:9e6ead95acc1312c9f804e"
+  		};
+  		firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      if(localStorage.getItem("userToken")){
+        location = "ReadForMebrowse.html"
+      }
+		</script>
+    <script src="script.js"></script>
+  </body>
+</html>

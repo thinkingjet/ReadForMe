@@ -1,0 +1,108 @@
+h1{
+  font-family: 'Lora';
+}
+h2{
+  font-family: 'Lora';
+}
+h3{
+  font-family: 'Lora';
+}
+h4{
+  font-family: 'Lora';
+}
+p{
+  font-family: 'Lora';
+}
+pre{
+  font-family: 'Lora';
+}
+input[type=text]{
+  font-family: 'Lora';
+  padding:10px;
+  font-size: 20px;
+  transition:0.5s;
+}
+input[type=text]:focus{
+  font-family: 'Lora';
+  padding:10px;
+  font-size: 20px;
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+input[type=email]{
+  font-family: 'Lora';
+  padding:10px;
+  font-size: 20px;
+  transition:0.5s;
+}
+input[type=email]:focus{
+  font-family: 'Lora';
+  padding:10px;
+  font-size: 20px;
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+input[type=password]{
+  font-family: 'Lora';
+  padding:10px;
+  font-size: 20px;
+  transition:0.5s;
+}
+input[type=password]:focus{
+  font-family: 'Lora';
+  padding:10px;
+  font-size: 20px;
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+textarea{
+  font-family: 'Kumbh Sans';
+  padding:10px;
+  transition:0.5s;
+}
+button{
+  font-family: 'Lora';
+  padding:10px;
+  border-radius: 10px;
+  font-size: 17px;
+  border: solid 2px;
+  background-color: rgb(189, 173, 150);
+  transition: 0.75s;
+  margin:10px;
+}
+button:hover{
+  font-family: 'Lora';
+  padding:10px;
+  border-radius: 20px;
+  font-size: 17px;
+  border: solid 2px;
+  transition: 0.75s;
+  margin:10px;
+}
+table{
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-family: 'Lora';
+  padding:5px;
+}
+th{
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-family: 'Lora';
+  font-weight: normal;
+  padding:5px;
+  width:100px;
+}
+td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-family: 'Lora';
+  padding:5px;
+  width:200px;
+}
+html {
+  scroll-behavior: smooth;
+}

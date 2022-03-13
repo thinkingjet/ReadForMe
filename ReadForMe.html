@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReadForMe</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Lato:wght@900&family=Nunito:wght@300&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+</head>
+<body onload="ReadForMe()">
+    <div style="padding:2.5vh;background-color: rgb(82, 59, 24);width:100%;margin:0px;">
+      <p style="font-family:Lora;font-size:2.5vh;margin:0px;padding:0px;float:right;cursor:pointer;" onclick="signout()">Sign Out</p>
+      <h2 style="font-family:Lora;font-size:5vh;margin:0px;padding:0px;margin-top:0px;cursor:pointer;" onclick="goSomewhere('ReadForMebrowse.html')">ReadForMe</h2>
+    </div>
+    <div style="padding:15px;margin:0px;height:89vh;">
+      <h2 id="name"></h2>
+      <pre id="description"></pre>
+      <button onclick="remember()" id="remember">🤍 Remember the Volunteer</button>
+      <button onclick="goSomewhere('/main/report.html')">❌ Report the Volunteer</button>
+      <button onclick="goSomewhere('#messages')">💬 Message the Volunteer</button>
+      <h3>Available Meeting Times:</h3>
+      <table>
+        <tr>
+          <th>Monday</th><td id="monday"></td>
+        </tr>
+        <tr>
+          <th>Tuesday</th>
+          <td id="tuesday"></td>
+        </tr>
+        <tr>
+          <th>Wednesday</th><td id="wednesday"></td>
+        </tr>
+        <tr>
+          <th>Thursday</th><td id="thursday"></td>
+        </tr>
+        <tr>
+          <th>Friday</th><td id="friday"></td>
+        </tr>
+        <tr>
+          <th>Saturday</th><td id="saturday"></td>
+        </tr>
+        <tr>
+          <th>Sunday</th><td id="sunday"></td>
+        </tr>
+      </table>
+    </div>
+    <div id="messages" style="background-color:rgb(236, 236, 236);height:100vh;width:100%;position:absolute;">
+      <input type="text" style="width:95%;margin:10px;position:absolute;bottom:0;" id="submitmessage">
+    </div>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js">
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js">
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js">
+		</script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js">
+		</script>
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+		</script>
+		<script>
+			var firebaseConfig = {
+    		apiKey: "AIzaSyACcdoqDQY_wJppp11MyYXSq9sEQ-prynI",
+        authDomain: "my-awesome-project-821d9.firebaseio.com/",
+        databaseURL: "https://my-awesome-project-821d9.firebaseio.com/",
+        projectId: "my-awesome-project-821d9",
+        storageBucket: "my-awesome-project-821d9.appspot.com",
+        messagingSenderId: "1023568265163",
+        appId: "1:1023568265163:web:9e6ead95acc1312c9f804e"
+  		};
+  		firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      if(!(localStorage.getItem("userToken"))){
+        location = "index.html";
+      }
+		</script>
+    <script src="script.js"></script>
+</body>
+</html>
